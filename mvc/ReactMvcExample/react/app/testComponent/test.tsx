@@ -6,132 +6,116 @@ import { TextField, MaskedTextField } from '@fluentui/react/lib/TextField';
 import { DefaultButton, IButtonStyles, PrimaryButton } from '@fluentui/react/lib/Button';
 
 export class State {
-	name: string;
-	text: string;
-	comments: CommentProps[];
-	selectedFruit: string;
+    name: string;
+    text: string;
+    comments: CommentProps[];
+    selectedFruit: string;
 }
 
 export class AuthorProps {
-	Name: string;
-	GithubUsername: string;
-};
+    Name: string;
+    GithubUsername: string;
+}
 
 export class CommentProps {
-	Author: AuthorProps;
-	Text: string;
-};
+    Author: AuthorProps;
+    Text: string;
+}
 
 type CommentsBoxProps = {
-	name: string;
-	initialComments: CommentProps[];
-	page: number;
+    name: string;
+    initialComments: CommentProps[];
+    page: number;
 };
 
 type CommentsResult = {
-	comments: CommentProps[];
-	text: string;
-	hasMore: boolean;
-}
+    comments: CommentProps[];
+    text: string;
+    hasMore: boolean;
+};
 
 const dropdownStyles: Partial<IDropdownStyles> = {
-	dropdown: { width: 300 },
+    dropdown: { width: 300 }
 };
 
 const buttonStyles: Partial<IButtonStyles> = {
-	root: { width: 40 },
+    root: { width: 120 }
 };
 
 const options: IDropdownOption[] = [
-	{ key: 'fruitsHeader', text: 'Fruits', itemType: DropdownMenuItemType.Header },
-	{ key: 'apple', text: 'Apple' },
-	{ key: 'banana', text: 'Banana' },
-	{ key: 'orange', text: 'Orange', disabled: true },
-	{ key: 'grape', text: 'Grape' },
-	{ key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
-	{ key: 'vegetablesHeader', text: 'Vegetables', itemType: DropdownMenuItemType.Header },
-	{ key: 'broccoli', text: 'Broccoli' },
-	{ key: 'carrot', text: 'Carrot' },
-	{ key: 'lettuce', text: 'Lettuce' },
+    { key: 'fruitsHeader', text: 'Fruits', itemType: DropdownMenuItemType.Header },
+    { key: 'apple', text: 'Apple' },
+    { key: 'banana', text: 'Banana' },
+    { key: 'orange', text: 'Orange', disabled: true },
+    { key: 'grape', text: 'Grape' },
+    { key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
+    {
+        key: 'vegetablesHeader',
+        text: 'Vegetables',
+        itemType: DropdownMenuItemType.Header
+    },
+    { key: 'broccoli', text: 'Broccoli' },
+    { key: 'carrot', text: 'Carrot' },
+    { key: 'lettuce', text: 'Lettuce' }
 ];
 
-const stackTokens: IStackTokens = { childrenGap: 20 };
+const isNullOrEmpty = (str: null | undefined | string): boolean => {
+    return !!!str || /^\s*$/.test(str);
+};
 
 export default class TestComponent extends React.Component<CommentsBoxProps, State> {
-	state: State;
+    state: State;
 
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = {
-			name: props.name,
-			text: '',
-			comments: props.initialComments,
-			selectedFruit: ''
-		}
-	}
+        this.state = {
+            name: props.name,
+            text: '',
+            comments: props.initialComments,
+            selectedFruit: ''
+        };
+    }
 
-	handleChange = async (ev: ChangeEvent<HTMLInputElement>) => {
-		this.setState({ name: ev.target.value });
-	}
+    handleChange = async (ev: ChangeEvent<HTMLInputElement>) => {
+        this.setState({ name: ev.target.value });
+    };
 
-	_alertClicked = async (): Promise<void> => {
-		const instance = axios.create({
-			headers: {
-				'Content-Type': 'application/json',
-				'X-Custom-Header': 'foobar'
-			}
-		});
+    _alertClicked = async (): Promise<void> => {
+        const instance = axios.create({
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Custom-Header': 'foobar'
+            }
+        });
 
-		const fruit = this.state.selectedFruit;
+        const page = '2';
 
-		const x = await instance.get<CommentsResult>(`/Home/Comments?page=2&text=${fruit}`);
-		this.setState({ comments: x.data.comments, text: this.state.comments[0].Text.concat('?', x.data.text) });
-	}
+        const fruit = this.state.selectedFruit;
 
-	onChangeDropdown = async (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption): Promise<void> => {
-		this.setState({ selectedFruit: item.key.toString() });
-	};
+        const x = await instance.get<CommentsResult>(`/Home/Comments?page=${page}&text=${fruit}`);
+        this.setState({
+            comments: x.data.comments,
+            text: this.state.comments[0].Text.concat('?', x.data.text)
+        });
+    };
 
-	render() {
-		return (
-			// <Customizer {...FluentCustomizations}>
-			<Stack>
-				<TextField label="Standard" value={this.state.name} onChange={this.handleChange} />
-				<p>Hello, {this.state.name}!</p>
+    onChangeDropdown = async (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption): Promise<void> => {
+        this.setState({ selectedFruit: item.key.toString() });
+    };
 
-				<TextField value={this.state.text} />
+    render() {
+        return (
+            <Stack>
+                <TextField label="Standard" value={this.state.name} onChange={this.handleChange} />
+                <p>Hello, {this.state.name}!</p>
 
-				<Dropdown
-					onChange={this.onChangeDropdown}
-					placeholder="Select an option"
-					label="Dropdown"
-					options={options}
-					styles={dropdownStyles}
-				/>
+                <TextField value={this.state.text} />
 
-				<PrimaryButton text="Standard" onClick={this._alertClicked} styles={buttonStyles}/>
+                <Dropdown onChange={this.onChangeDropdown} placeholder="Select an option" label="Dropdown" options={options} styles={dropdownStyles} />
 
-			</Stack>
-			// </Customizer>
-		);
-	}
-
-	// render() {
-	//  return (
-	//   <>
-	//<TextField label="Standard" value={this.state.name} onChange={this.handleChange} />
-	//<p>Hello, {this.state.name}!</p>
-	//</>
-	//	    )
-	// }
-
-	// render() {
-	//     return (
-	//         <div className="react-div">
-	//             <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
-	//             <p>Hello, {this.state.name}!</p>
-	//         </div>
-	//         );
-	// }
+                <PrimaryButton text="Click Me!..." onClick={this._alertClicked} styles={buttonStyles} disabled={isNullOrEmpty(this.state.selectedFruit)} />
+            </Stack>
+        );
+    }
 }

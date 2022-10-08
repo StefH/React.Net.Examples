@@ -13,6 +13,7 @@ namespace ReactMvcExample
             ReactSiteConfiguration.Configuration
                 .AddScriptWithoutTransform("~/wwwroot/dist/vendor.js")
                 .AddScriptWithoutTransform("~/wwwroot/dist/runtime.js")
+                .AddScriptWithoutTransform("~/wwwroot/dist/fluentui.js")
                 .AddScriptWithoutTransform("~/wwwroot/dist/components.js");
 
             JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
