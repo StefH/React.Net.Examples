@@ -11,10 +11,10 @@ namespace ReactMvcExample
         public static void Configure()
         {
             ReactSiteConfiguration.Configuration
-                .AddScriptWithoutTransform("~/wwwroot/dist/vendor.js")
-                .AddScriptWithoutTransform("~/wwwroot/dist/runtime.js")
-                .AddScriptWithoutTransform("~/wwwroot/dist/fluentui.js")
-                .AddScriptWithoutTransform("~/wwwroot/dist/components.js");
+                .AddScriptWithoutTransform("~/Scripts/dist/vendor.js")
+                .AddScriptWithoutTransform("~/Scripts/dist/runtime.js")
+                .AddScriptWithoutTransform("~/Scripts/dist/fluentui.js")
+                .AddScriptWithoutTransform("~/Scripts/dist/components.js");
 
             JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
             JsEngineSwitcher.Current.EngineFactories.AddV8();
