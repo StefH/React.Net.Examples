@@ -1,0 +1,24 @@
+﻿@model ReactMvcSample.ViewModels.IndexViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <p>.NET + React + Typescript + Webpack</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.React("TestComponent", new { name = Model.Name, initialComments = Model.Comments, page = Model.Page })
+    </div>
+</div>
+
+
+
+<!--@Scripts.Render("~/wwwroot/dist/runtime.js")
+@Scripts.Render("~/wwwroot/dist/vendor.js")
+@Scripts.Render("~/wwwroot/dist/components.js")-->
+
+<!-- Render the code to initialise the component -->
+<!--@Html.ReactInitJavaScript()-->
