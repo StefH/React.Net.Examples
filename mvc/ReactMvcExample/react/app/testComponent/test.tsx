@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, ChangeEvent, MouseEventHandler } from 'react';
+import React, { Component, useState, ChangeEvent, MouseEventHandler } from 'react';
 import { IStackTokens, Stack } from '@fluentui/react/lib/Stack';
 import { Dropdown, DropdownMenuItemType, IDropdownStyles, IDropdownOption } from '@fluentui/react/lib/Dropdown';
 import { TextField, MaskedTextField } from '@fluentui/react/lib/TextField';
@@ -63,7 +63,7 @@ const isNullOrEmpty = (str: null | undefined | string): boolean => {
     return !!!str || /^\s*$/.test(str);
 };
 
-export default class TestComponent extends React.Component<CommentsBoxProps, State> {
+export default class TestComponent extends Component<CommentsBoxProps, State> {
     state: State;
 
     constructor(props) {

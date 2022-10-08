@@ -4,20 +4,19 @@ using React;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ReactMvcExample.ReactConfig), "Configure")]
 
-namespace ReactMvcExample
-{
-    public static class ReactConfig
-    {
-        public static void Configure()
-        {
-            ReactSiteConfiguration.Configuration
-                .AddScriptWithoutTransform("~/Scripts/dist/vendor.js")
-                .AddScriptWithoutTransform("~/Scripts/dist/runtime.js")
-                .AddScriptWithoutTransform("~/Scripts/dist/fluentui.js")
-                .AddScriptWithoutTransform("~/Scripts/dist/components.js");
+namespace ReactMvcExample;
 
-            JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
-            JsEngineSwitcher.Current.EngineFactories.AddV8();
-        }
+public static class ReactConfig
+{
+    public static void Configure()
+    {
+        ReactSiteConfiguration.Configuration
+            .AddScriptWithoutTransform("~/Scripts/dist/vendor.js")
+            .AddScriptWithoutTransform("~/Scripts/dist/runtime.js")
+            .AddScriptWithoutTransform("~/Scripts/dist/fluentui.js")
+            .AddScriptWithoutTransform("~/Scripts/dist/components.js");
+
+        JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
+        JsEngineSwitcher.Current.EngineFactories.AddV8();
     }
 }
