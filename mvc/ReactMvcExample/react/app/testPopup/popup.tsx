@@ -1,6 +1,8 @@
-import React, { FunctionComponent, useState, ChangeEvent, MouseEventHandler } from 'react';
+import React, { Component, FunctionComponent, useState, ChangeEvent, MouseEventHandler } from 'react';
 import { mergeStyleSets, DefaultButton, FocusTrapZone, Layer, Overlay, Popup } from '@fluentui/react';
 import { useBoolean } from '@fluentui/react-hooks';
+import { FontIcon } from '@fluentui/react/lib/Icon';
+import { mergeStyles } from '@fluentui/react/lib/Styling';
 
 const popupStyles = mergeStyleSets({
     root: {
@@ -22,11 +24,32 @@ const popupStyles = mergeStyleSets({
     }
 });
 
-export const PopupComponent: FunctionComponent = () => {
-    const [isPopupVisible, { setTrue: showPopup, setFalse: hidePopup }] = useBoolean(false);
+type PopupComponentAsComponentProps = {
+    isPopupVisible: boolean;
+    text: string;
+};
+
+const iconClass = mergeStyles({
+    fontSize: 50,
+    height: 50,
+    width: 50,
+    margin: '0 25px'
+});
+
+const iconStyle = {
+    color: 'darkblue',
+    cursor: 'pointer'
+};
+
+export const PopupComponent: FunctionComponent<PopupComponentAsComponentProps> = (props: PopupComponentAsComponentProps) => {
+    const [isPopupVisible, { setTrue: showPopup, setFalse: hidePopup }] = useBoolean(props.isPopupVisible);
+    const [count, setCount] = useState(0);
+
     return (
         <>
-            <DefaultButton onClick={showPopup} text="Show modal popup" />
+            <div>
+                <FontIcon style={iconStyle} aria-label="Touch" iconName="Touch" className={iconClass} onClick={showPopup} />
+            </div>
             {isPopupVisible && (
                 <Layer>
                     <Popup className={popupStyles.root} role="dialog" aria-modal="true" onDismiss={hidePopup} enableAriaHiddenSiblings={true}>
@@ -34,7 +57,7 @@ export const PopupComponent: FunctionComponent = () => {
                         <FocusTrapZone>
                             <div role="document" className={popupStyles.content}>
                                 <h2>Example Popup</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p>{props.text}</p>
                                 <DefaultButton onClick={hidePopup}>Close Popup</DefaultButton>
                             </div>
                         </FocusTrapZone>

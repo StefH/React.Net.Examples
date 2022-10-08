@@ -13,3 +13,6 @@ global['ReactDOMServer'] = ReactDOMServer;
 
 global['TestComponent'] = TestComponent;
 global['PopupComponent'] = PopupComponent;
+
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
+initializeIcons();

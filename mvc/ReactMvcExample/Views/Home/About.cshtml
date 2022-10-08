@@ -2,4 +2,8 @@
     ViewBag.Title = "About";
 }
 
-@Html.React("PopupComponent", new { })
+@Html.React("PopupComponent", new { text = "popup 1" })
+
+<hr/>
+
+@Html.React("PopupComponent", new { isPopupVisible = true, text = "popup 2" })
