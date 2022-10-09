@@ -1,15 +1,23 @@
-﻿@model ReactMvcSample.ViewModels.IndexViewModel
+﻿@model ReactMvcExample.ViewModels.IndexViewModel
 
 @{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div style="color: red">
     <p>.NET + React + Typescript + Webpack</p>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        @Html.React("TestComponent", new { name = Model.Name, initialComments = Model.Comments, page = Model.Page })
+        @Html.React("TestComponent", new { Model.Name, InitialComments = Model.Comments, Model.Page })
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+    <div class="col-md-12">
+        @Html.React("TestComponentAsFunctional", new { Name = Model.Name + "2", InitialComments = Model.Comments, Model.Page })
     </div>
 </div>

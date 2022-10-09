@@ -2,8 +2,8 @@
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
-import TestComponent from './testComponent/test';
-import { PopupComponent } from './testPopup/popup';
+import TestComponent, { TestComponentAsFunctional } from './testComponent/test';
+import PopupComponentAsClass, { PopupComponent } from './testPopup/popup';
 
 declare var global: any;
 
@@ -12,7 +12,9 @@ global['ReactDOM'] = ReactDOM;
 global['ReactDOMServer'] = ReactDOMServer;
 
 global['TestComponent'] = TestComponent;
+global['TestComponentAsFunctional'] = TestComponentAsFunctional;
 global['PopupComponent'] = PopupComponent;
+global['PopupComponentAsClass'] = PopupComponentAsClass;
 
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 initializeIcons();

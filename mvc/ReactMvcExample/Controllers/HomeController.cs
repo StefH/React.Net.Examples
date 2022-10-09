@@ -2,38 +2,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.UI;
-using ReactMvcSample.ViewModels;
+using ReactMvcExample.ViewModels;
 
-namespace ReactMvcSample.Controllers;
+namespace ReactMvcExample.Controllers;
 
 public class HomeController : Controller
 {
     private const int COMMENTS_PER_PAGE = 3;
 
-    private readonly IDictionary<string, AuthorModel> _authors;
     private readonly IList<CommentModel> _comments;
 
     public HomeController()
     {
         // In reality, you would use a repository or something for fetching data
         // For clarity, we'll just use a hard-coded list.
-        _authors = new Dictionary<string, AuthorModel>
+        IDictionary<string, AuthorModel> authors = new Dictionary<string, AuthorModel>
         {
             {"daniel", new AuthorModel { Name = "Daniel Lo Nigro", GithubUsername = "Daniel15" }},
             {"vjeux", new AuthorModel { Name = "Christopher Chedeau", GithubUsername = "vjeux" }},
             {"cpojer", new AuthorModel { Name = "Christoph Pojer", GithubUsername = "cpojer" }},
             {"jordwalke", new AuthorModel { Name = "Jordan Walke", GithubUsername = "jordwalke" }},
-            {"zpao", new AuthorModel { Name = "Paul O'Shannessy", GithubUsername = "zpao" }},
+            {"zpao", new AuthorModel { Name = "Paul O'Shannessy", GithubUsername = "zpao" }}
         };
         _comments = new List<CommentModel>
         {
-            new CommentModel { Author = _authors["daniel"], Text = "First!!!!111!" },
-            new CommentModel { Author = _authors["zpao"], Text = "React is awesome!" },
-            new CommentModel { Author = _authors["cpojer"], Text = "Awesome!" },
-            new CommentModel { Author = _authors["vjeux"], Text = "Hello World" },
-            new CommentModel { Author = _authors["daniel"], Text = "Foo" },
-            new CommentModel { Author = _authors["daniel"], Text = "Bar" },
-            new CommentModel { Author = _authors["daniel"], Text = "FooBarBaz" },
+            new() { Author = authors["daniel"], Text = "First!!!!111!" },
+            new() { Author = authors["zpao"], Text = "React is awesome!" },
+            new() { Author = authors["cpojer"], Text = "Awesome!" },
+            new() { Author = authors["vjeux"], Text = "Hello World" },
+            new() { Author = authors["daniel"], Text = "Foo" },
+            new() { Author = authors["daniel"], Text = "Bar" },
+            new() { Author = authors["daniel"], Text = "FooBarBaz" }
         };
     }
 
@@ -64,15 +63,13 @@ public class HomeController : Controller
                 hasMore = hasMore
             }, JsonRequestBehavior.AllowGet);
         }
-        else
+
+        return View("Index", new IndexViewModel
         {
-            return View("Index", new IndexViewModel
-            {
-                Comments = _comments.Take(COMMENTS_PER_PAGE * page),
-                CommentsPerPage = COMMENTS_PER_PAGE,
-                Page = page
-            });
-        }
+            Comments = _comments.Take(COMMENTS_PER_PAGE * page),
+            CommentsPerPage = COMMENTS_PER_PAGE,
+            Page = page
+        });
     }
 
     public ActionResult About()

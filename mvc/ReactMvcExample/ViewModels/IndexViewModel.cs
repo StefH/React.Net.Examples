@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReactMvcSample.ViewModels;
+namespace ReactMvcExample.ViewModels;
 
 public class IndexViewModel
 {
