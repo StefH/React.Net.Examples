@@ -42,11 +42,6 @@ const iconClass = mergeStyles({
     cursor: 'pointer'
 });
 
-// const iconStyle = {
-//     color: 'darkblue',
-//     cursor: 'pointer'
-// };
-
 export default class PopupComponentAsClass extends Component<PopupComponentAsComponentProps, PopupComponentAsComponentState> {
     state: PopupComponentAsComponentState;
 

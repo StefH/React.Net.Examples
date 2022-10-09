@@ -50,19 +50,11 @@ const options: IDropdownOption[] = [
     { key: 'orange', text: 'Orange', disabled: true },
     { key: 'grape', text: 'Grape' },
     { key: 'divider_1', text: '-', itemType: DropdownMenuItemType.Divider },
-    {
-        key: 'vegetablesHeader',
-        text: 'Vegetables',
-        itemType: DropdownMenuItemType.Header
-    },
+    { key: 'vegetablesHeader', text: 'Vegetables', itemType: DropdownMenuItemType.Header },
     { key: 'broccoli', text: 'Broccoli' },
     { key: 'carrot', text: 'Carrot' },
     { key: 'lettuce', text: 'Lettuce' }
 ];
-
-// const isNullOrEmpty = (str: null | undefined | string): boolean => {
-//     return !!!str || /^\s*$/.test(str);
-// };
 
 export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (props: CommentsBoxProps) => {
     const [state, setState] = useState<State>({
@@ -109,7 +101,10 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
             />
             <p>Hello, {state.name}!</p>
 
-            <TextField value={state.text} />
+            <TextField
+                value={state.text}
+                readOnly={true}
+            />
 
             <Dropdown
                 onChange={onChangeDropdown}
