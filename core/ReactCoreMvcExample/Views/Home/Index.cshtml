@@ -1,0 +1,34 @@
+﻿@using React.AspNet
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@Model.Name
+
+<div style="color: red">
+    <p>.NET + React + Typescript + Webpack</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.React("TestComponent", new { Model.Name, InitialComments = Model.Comments, Model.Page })
+    </div>
+
+    <div class="col-md-12">
+        <hr />
+    </div>
+
+    <div class="col-md-12">
+        @Html.React("TestComponentAsFunctional", new { Name = Model.Name + "2", InitialComments = Model.Comments, Model.Page })
+    </div>
+    
+    
+    @Html.React("PopupComponent", new { text = "popup 1" })
+
+    <hr />
+
+    @Html.React("PopupComponent", new { isPopupVisible = true, text = "popup 2" })
+
+    <hr />
+</div>

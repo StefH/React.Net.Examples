@@ -11,6 +11,7 @@ public static class ReactConfig
     public static void Configure()
     {
         ReactSiteConfiguration.Configuration
+            .SetLoadBabel(false)
             .AddScriptWithoutTransform("~/Scripts/dist/vendor.js")
             .AddScriptWithoutTransform("~/Scripts/dist/runtime.js")
             .AddScriptWithoutTransform("~/Scripts/dist/fluentui.js")

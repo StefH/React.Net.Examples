@@ -1,4 +1,5 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -56,5 +57,19 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
-    }
+    },
+    plugins: [
+        new CopyWebpackPlugin(
+            [
+                {
+                    from: '**',
+                    to: path.resolve(__dirname, '../../../core/ReactCoreMvcExample/wwwroot/js/dist'),
+                    context: path.resolve(__dirname, '../Scripts/dist')
+                }
+            ],
+            {
+                copyUnmodified: false
+            }
+        )
+    ]
 };

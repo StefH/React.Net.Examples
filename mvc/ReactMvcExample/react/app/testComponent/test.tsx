@@ -80,7 +80,7 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
             }
         });
 
-        const page = '2';
+        const page = '2 '.trim();
 
         const fruit = state.selectedFruit;
 
@@ -91,6 +91,8 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
             text: state.comments[0].Text.concat('?', x.data.text)
         });
     };
+
+    // gkkk
 
     return (
         <Stack>
