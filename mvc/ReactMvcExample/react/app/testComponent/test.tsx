@@ -80,7 +80,7 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
             }
         });
 
-        const page = '2 '.trim();
+        const page = '2';
 
         const fruit = state.selectedFruit;
 
