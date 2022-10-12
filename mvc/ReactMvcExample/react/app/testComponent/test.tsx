@@ -92,8 +92,6 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
         });
     };
 
-    // gkkk
-
     return (
         <Stack>
             <TextField

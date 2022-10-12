@@ -68,4 +68,11 @@ public class HomeController : Controller
             Page = page
         });
     }
+
+    public ActionResult About()
+    {
+        ViewBag.Message = "The about page...";
+
+        return View();
+    }
 }
