@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{703B87EB-7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{DB721313-635F-4375-A4EB-BBB31A585A0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactMvcExample", "mvc\ReactMvcExample\ReactMvcExample.csproj", "{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactMvcExample", "framework\ReactMvcExample\ReactMvcExample.csproj", "{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
