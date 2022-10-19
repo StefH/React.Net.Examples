@@ -1,0 +1,14 @@
+﻿@using React.AspNet
+@{
+    ViewBag.Title = "About";
+}
+
+@Html.React("PopupComponent", new { text = "popup 1" })
+
+<hr />
+
+@Html.React("PopupComponent", new { isPopupVisible = true, text = "popup 2" })
+
+<hr />
+
+@*@Html.React("PopupComponentAsClass", new { text = "popup 3" })*@

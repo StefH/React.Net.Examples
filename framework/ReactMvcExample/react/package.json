@@ -1,0 +1,31 @@
+{
+    "name": "react-mvc-example",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config webpack.config.js",
+        "watch": "webpack --watch --config webpack.config.js"
+    },
+    "keywords": [],
+    "author": "Stef",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/react": "^16.9.2",
+        "@typescript-eslint/parser": "^5.39.0",
+        "copy-webpack-plugin": "^4.6.0",
+        "eslint": "^8.7.0",
+        "prettier": "^2.7.1",
+        "source-map-loader": "^0.2.4",
+        "ts-loader": "^6.2.2",
+        "typescript": "^4.8.4",
+        "webpack": "^4.46.0",
+        "webpack-cli": "^3.3.12"
+    },
+    "dependencies": {
+        "@fluentui/react": "^8.97.2",
+        "axios": "^0.27.2",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0"
+    }
+}

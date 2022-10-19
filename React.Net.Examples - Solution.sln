@@ -3,12 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactMvcExample", "mvc\ReactMvcExample\ReactMvcExample.csproj", "{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E20B970-882A-4823-B85D-35853300AE8B}"
 	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReactCoreMvcExample", "core\ReactCoreMvcExample\ReactCoreMvcExample.csproj", "{FFC6423F-7EE5-430F-BB97-6983B79EBF30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{703B87EB-7B7A-4566-9BF0-92350521CA5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "framework", "framework", "{DB721313-635F-4375-A4EB-BBB31A585A0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactMvcExample", "framework\ReactMvcExample\ReactMvcExample.csproj", "{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,6 +23,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFC6423F-7EE5-430F-BB97-6983B79EBF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFC6423F-7EE5-430F-BB97-6983B79EBF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFC6423F-7EE5-430F-BB97-6983B79EBF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFC6423F-7EE5-430F-BB97-6983B79EBF30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AD9D507-8D0E-4129-9B11-8A65178B5EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,6 +34,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFC6423F-7EE5-430F-BB97-6983B79EBF30} = {703B87EB-7B7A-4566-9BF0-92350521CA5C}
+		{1AD9D507-8D0E-4129-9B11-8A65178B5EA8} = {DB721313-635F-4375-A4EB-BBB31A585A0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCF4A41E-C60D-4086-98A9-6F8508D7E8D0}
