@@ -4,6 +4,15 @@ import { useBoolean } from '@fluentui/react-hooks';
 import { FontIcon } from '@fluentui/react/lib/Icon';
 import { mergeStyles } from '@fluentui/react/lib/Styling';
 
+const iconClass = mergeStyles({
+    fontSize: 50,
+    height: 50,
+    width: 50,
+    margin: '0 25px',
+    color: 'darkblue',
+    cursor: 'pointer'
+});
+
 const popupStyles = mergeStyleSets({
     root: {
         background: 'rgba(0, 0, 0, 0.2)',
@@ -29,18 +38,47 @@ type PopupComponentAsComponentProps = {
     text: string;
 };
 
+export const PopupComponent: FunctionComponent<PopupComponentAsComponentProps> = (props: PopupComponentAsComponentProps) => {
+    const [isPopupVisible, { setTrue: showPopup, setFalse: hidePopup }] = useBoolean(props.isPopupVisible);
+
+    return (
+        <>
+            <div>
+                <FontIcon
+                    aria-label="Touch"
+                    iconName="Touch"
+                    className={iconClass}
+                    onClick={showPopup}
+                />
+            </div>
+            {isPopupVisible && (
+                <Layer>
+                    <Popup
+                        className={popupStyles.root}
+                        role="dialog"
+                        aria-modal="true"
+                        onDismiss={hidePopup}
+                        enableAriaHiddenSiblings={true}>
+                        <Overlay onClick={hidePopup} />
+                        <FocusTrapZone>
+                            <div
+                                role="document"
+                                className={popupStyles.content}>
+                                <h2>Example Popup</h2>
+                                <p>{props.text}</p>
+                                <DefaultButton onClick={hidePopup}>Close Popup</DefaultButton>
+                            </div>
+                        </FocusTrapZone>
+                    </Popup>
+                </Layer>
+            )}
+        </>
+    );
+};
+
 type PopupComponentAsComponentState = {
     isPopupVisible: boolean;
 };
-
-const iconClass = mergeStyles({
-    fontSize: 50,
-    height: 50,
-    width: 50,
-    margin: '0 25px',
-    color: 'darkblue',
-    cursor: 'pointer'
-});
 
 export default class PopupComponentAsClass extends Component<PopupComponentAsComponentProps, PopupComponentAsComponentState> {
     state: PopupComponentAsComponentState;
@@ -93,41 +131,3 @@ export default class PopupComponentAsClass extends Component<PopupComponentAsCom
         );
     }
 }
-
-export const PopupComponent: FunctionComponent<PopupComponentAsComponentProps> = (props: PopupComponentAsComponentProps) => {
-    const [isPopupVisible, { setTrue: showPopup, setFalse: hidePopup }] = useBoolean(props.isPopupVisible);
-
-    return (
-        <>
-            <div>
-                <FontIcon
-                    aria-label="Touch"
-                    iconName="Touch"
-                    className={iconClass}
-                    onClick={showPopup}
-                />
-            </div>
-            {isPopupVisible && (
-                <Layer>
-                    <Popup
-                        className={popupStyles.root}
-                        role="dialog"
-                        aria-modal="true"
-                        onDismiss={hidePopup}
-                        enableAriaHiddenSiblings={true}>
-                        <Overlay onClick={hidePopup} />
-                        <FocusTrapZone>
-                            <div
-                                role="document"
-                                className={popupStyles.content}>
-                                <h2>Example Popup</h2>
-                                <p>{props.text}</p>
-                                <DefaultButton onClick={hidePopup}>Close Popup</DefaultButton>
-                            </div>
-                        </FocusTrapZone>
-                    </Popup>
-                </Layer>
-            )}
-        </>
-    );
-};
