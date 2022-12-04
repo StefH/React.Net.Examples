@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - React Sample App</title>
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/site.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css" />
+
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">React Sample App</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Home/About">About</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <div id="react_0HMMLVIL57PCO">
+            <div>
+                <i data-icon-name="Touch" role="img" aria-label="Touch" class="ms-Icon root-94 css-113 css-111" 
+                   style="font-family: &quot;FabricMDL2Icons-1&quot;">
+                </i>
+            </div>
+        </div>
+
+        <hr />
+
+        <div id="react_0HMMLVIL57PCP">
+            <div>
+                <i data-icon-name="Touch" role="img" aria-label="Touch" class="ms-Icon root-94 css-113 css-111" 
+                   style="font-family: &quot;FabricMDL2Icons-1&quot;">
+                </i>
+            </div>
+            <span class="ms-layer"></span>
+        </div>
+
+        <hr />
+
+        <hr />
+        <footer>
+            <p>&copy; 2022</p>
+        </footer>
+    </div>
+
+    <script src="/Scripts/jquery-3.4.1.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+
+
+    <script src="/Scripts/dist/runtime.js"></script>
+
+    <script src="/Scripts/dist/vendor.js"></script>
+
+    <script src="/Scripts/dist/fluentui.js"></script>
+
+    <script src="/Scripts/dist/components.js"></script>
+
+
+    <!-- Render the code to initialise the component -->
+    <script>
+        ReactDOM.hydrate(
+            React.createElement(PopupComponent, { "text": "popup 1" }),
+            document.getElementById("react_0HMMLVIL57PCO")
+        );
+        ReactDOM.hydrate(
+            React.createElement(PopupComponent, { "isPopupVisible": true, "text": "popup 2" }),
+            document.getElementById("react_0HMMLVIL57PCP")
+        );
+    </script>
+
+</body>
+</html>
