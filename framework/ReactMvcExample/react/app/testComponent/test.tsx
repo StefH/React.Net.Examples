@@ -99,7 +99,7 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
                 value={state.name}
                 onChange={handleChange}
             />
-            <p>Hello, {state.name}!</p>
+            <p>Hello from Functional, {state.name}!</p>
 
             <TextField
                 value={state.text}
@@ -173,7 +173,7 @@ export default class TestComponent extends Component<CommentsBoxProps, State> {
                     value={this.state.name}
                     onChange={this.handleChange}
                 />
-                <p>Hello, {this.state.name}!</p>
+                <p>Hello from Component, {this.state.name}!</p>
 
                 <TextField value={this.state.text} />
 
