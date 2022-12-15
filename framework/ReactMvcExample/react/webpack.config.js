@@ -27,12 +27,12 @@ module.exports = {
                     test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
                     name: 'vendor',
                     chunks: 'all'
-                },
-                fluentui: {
+                }
+                /*fluentui: {
                     test: /[\\/]node_modules[\\/]@fluentui[\\/]/,
                     name: 'fluentui',
                     chunks: 'all'
-                }
+                }*/
             }
         }
     },

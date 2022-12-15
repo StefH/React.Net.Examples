@@ -35,7 +35,7 @@ app.UseReact(config =>
         // .SetLoadBabel(false)
         .AddScriptWithoutTransform("~/js/dist/vendor.js")
         .AddScriptWithoutTransform("~/js/dist/runtime.js")
-        .AddScriptWithoutTransform("~/js/dist/fluentui.js")
+        //.AddScriptWithoutTransform("~/js/dist/fluentui.js")
         .AddScriptWithoutTransform("~/js/dist/components.js")
         .SetJsonSerializerSettings(new JsonSerializerSettings
         {

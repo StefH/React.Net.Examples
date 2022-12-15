@@ -14,7 +14,6 @@ public static class ReactConfig
             .SetLoadBabel(false)
             .AddScriptWithoutTransform("~/Scripts/dist/vendor.js")
             .AddScriptWithoutTransform("~/Scripts/dist/runtime.js")
-            .AddScriptWithoutTransform("~/Scripts/dist/fluentui.js")
             .AddScriptWithoutTransform("~/Scripts/dist/components.js");
 
         JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
