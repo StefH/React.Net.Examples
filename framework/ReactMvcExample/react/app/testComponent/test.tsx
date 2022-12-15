@@ -95,7 +95,7 @@ export const TestComponentAsFunctional: FunctionComponent<CommentsBoxProps> = (p
     return (
         <Stack>
             <TextField
-                label="Standard"
+                label="Label : hello from mstack.nl"
                 value={state.name}
                 onChange={handleChange}
             />
