@@ -1,5 +1,9 @@
-# React.Net.Examples
+# :computer: React.Net.Examples
 Some React.Net example projects
+
+## :memo: Links
+* [Modernizing a ASP.NET MVC application using ReactJS.Net](https://mstack.nl/blog/20230422-react.net/)
+* [React.NET - Server-side React rendering for ASP.NET (Core)](https://reactjs.net/)
 
 ## MVC (.NET Framework 4.8 project)
 
