@@ -2,7 +2,7 @@
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
-import TestComponent, { TestComponentAsFunctional } from './testComponent/test';
+import TestComponent, { TestComponentAsFunctional } from './testComponent/example';
 import PopupComponentAsClass, { PopupComponent } from './testPopup/popup';
 
 declare var global: any;
